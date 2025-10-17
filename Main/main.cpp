@@ -88,10 +88,31 @@ void quickSortR(int a[], int B, int E)
 	if (i < E)quickSortR(a, i, E);
 }
 
+
+
+
+
+double Stupendia(int sum)
+{
+	double result = sum / 2;
+	if (result == 10.7)
+	{
+		cout << "Stipendia budet: ";
+	}
+	else {
+		cout << "Ne budet stipendia";
+	}
+	return result;
+}
+
+
+
+
 void main() {
 	srand(time(NULL));
 	const long SIZE = 10;
-	int ar[SIZE];
+	int subject[SIZE];
+	int newsubject;
 
 	// до сортировки
 	for (int i = 0; i < SIZE; i++)
@@ -99,21 +120,53 @@ void main() {
 		/*ar[i] = rand() % 20;
 		cout << ar[i] << "\t";*/
 		cout << "Enter a subject: " << i << ": ";
-		cin >> ar[i];
+		cin >> subject[i];
 	}
 	cout << "\n Vivod: ";
 	for (size_t i = 0; i < SIZE; i++)
 	{
-		cout << ar[i] << "\t";
+		cout << subject[i] << "\t";
 	}
 	cout << "\n\n";
-	quickSortR(ar, 0, SIZE - 1);
+
+	for (size_t i = 0; i < 1; i++)
+	{
+		cout << "Enter a number subject: ";
+		cin >> i;
+		cout << "Enter new subject: ";
+		cin >> newsubject;
+		subject[i] = newsubject;
+	}
+
+	cout << "\nIzmenenie \n\n";
+
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		cout << subject[i] << "\t";
+	}
+
+	cout << "\n";
+	quickSortR(subject, 0, SIZE - 1);
 	
 
 	// после сортировки
 	for (int i = 0; i < SIZE; i++) {
-		cout << ar[i] << "\t";
+		cout << subject[i] << "\t";
 	}
 	cout << "\n\n" << "Sortirovka posle";
+
+	cout << "\n";
+	int sum = 0;
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		sum += subject[i];
+	}
+	cout << "Sum: " << sum << "\n";
+
+	cout << " " << Stupendia(sum);
+
+	
+
+
 }
 
